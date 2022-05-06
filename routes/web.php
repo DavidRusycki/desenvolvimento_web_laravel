@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\ControllerCategorias;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/marcondes', function () {
-    $pessoas = DB::select('select * from pessoa');
-
-    return view('cadastro.listagem', ['pessoas' => $pessoas]);
-});
+Route::get('/categorias', [ControllerCategorias::class, 'listar']);
